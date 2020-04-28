@@ -23,13 +23,21 @@ h1{
     font-size: 3rem;
     color: #f3f3f3;
     padding: 10px;
-
 }
+
+h2{
+    font-size: 3rem;
+    padding: 10px;
+}
+
+
 footer{
     width: 100%;
     height: 100px;
     background-color: aqua;
     margin-top: 100%;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 img{
@@ -39,6 +47,10 @@ img{
 
 .fa-heart{
     color: red;
+}
+
+.fa-keyboard{
+    size: 40px;
 }
 
 input{

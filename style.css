@@ -45,19 +45,19 @@ img{
     height: 100%;
 }
 
+input{
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 .fa-heart{
     color: red;
 }
 
 .fa-keyboard{
     size: 40px;
-}
-
-input{
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
 }
 
 .resolut{

@@ -5,7 +5,10 @@ body {
     background: -moz-linear-gradient(left, #CE155C 0%, #A45757 50%, #C5C5C5 100%);
     background: -webkit-linear-gradient(left, #CE155C 0%, #A45757 50%, #C5C5C5 100%);
     background: linear-gradient(to right, #CE155C 0%, #A45757 50%, #C5C5C5 100%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
 }
+
 
 
 header{
@@ -14,28 +17,39 @@ header{
 
 }
 
-h1{
-    font-size: 2rem;
-    color: #f3f3f3;
 
+
+h1{
+    font-size: 3rem;
+    color: #f3f3f3;
+    padding: 20px;
 }
 
 section{
     width: 100%;
     height: 100px;
+    padding: 20px;
 
 }
 
 footer{
     width: 100%;
     height: 100px;
+}
 
+img{
+    border: 5px dashed black;
+    height: 100%;
 }
 
 .flex-container{
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.fa-heart{
+    color: red;
 }
 
 

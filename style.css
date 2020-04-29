@@ -85,3 +85,14 @@ input{
   #myBtn:hover {
     background-color: #555;
   }
+
+  @media only screen and (max-width: 700px){
+      img{
+          width: 80%;
+      }
+
+      h1{
+        font-size: 2rem;
+        color: #f3f3f3;
+    }
+  }

@@ -37,7 +37,7 @@ footer{
     background-color: aqua;
     margin-top: 100%;
     padding-top: 20px;
-    padding-bottom: 10px;
+
 }
 
 img{
@@ -62,8 +62,9 @@ button{
     }
 button:hover {
         background-color: Crimson;
+}
 
-.fa-heart{
+.fa-heart {
     color: red;
 }
 
@@ -91,7 +92,7 @@ button:hover {
     color: white;
     cursor: pointer;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 
   #myBtn:hover {
@@ -106,6 +107,7 @@ button:hover {
       h1{
         font-size: 2rem;
         color: #f3f3f3;
+        margin-top: 20px;
         }
         footer{
             height: 150px;

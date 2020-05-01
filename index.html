@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1>Ceasar's Cipher<i class="fas fa-key"></i></h1>
+    <h1>Ceasar's Cipher <i class="fas fa-key"></i></h1>
 </header>
 
 <section id="cezar">
@@ -24,10 +24,11 @@
     <h2><i class="far fa-keyboard"></i></h2>
 
     <input type="text" placeholder="Enter something..." id="input">
-    <button onclick="crypter()">
+    <button onclick="crypter()" id="lockButton">
     <i class="fa fa-lock" aria-hidden="true"></i>
     </button>
     <div id="resolut"></div>
+    <button onclick="CopyToClipboard('resolut')" id="copyBtn"><i class="far fa-copy"></i></button>
 
 </main>
 
@@ -60,6 +61,9 @@
 
 <script src="copy.js"></script>
 <!-- copy button -->
+
+<script src="enter.js"></script>
+<!-- click enter to activate button -->
 
 </body>
 </html>

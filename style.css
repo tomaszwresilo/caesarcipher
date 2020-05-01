@@ -69,17 +69,27 @@ button:hover {
         background-color: Crimson;
 }
 
+
+.fa-copy{
+    font-size: 1.5rem;
+}
+
+.fa-lock{
+    font-size: 1rem;
+}
+
 .fa-heart {
     color: red;
 }
 
-.fa-keyboard{
-    size: 40px;
+
+#copyBtn:hover{
+    background-color: royalblue;
+
 }
 
 #resolut{
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 /* Page up button */

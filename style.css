@@ -122,18 +122,24 @@ button:hover {
         header{
             margin-bottom: 0px;
         }
+
         img{
-          width: 50%;
+            width: 50%;
         }
 
         h1{
-        font-size: 2rem;
+            font-size: 2rem;
         }
         footer{
             font-size: 1.25rem;
             height: 100px;
         }
+
         input{
             width: 40%;
+        }
+
+        button{
+            margin-top: 20px;
         }
   }

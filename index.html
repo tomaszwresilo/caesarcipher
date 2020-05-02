@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1>Ceasar's Cipher <i class="fas fa-key"></i></h1>
+    <h1>Ceasar's Cipher<i class="fas fa-key"></i></h1>
 </header>
 
 <section id="cezar">
@@ -22,11 +22,11 @@
 <main>
     <h1>Let's encrypt something!</h1>
     <h2><i class="far fa-keyboard"></i></h2>
-
-    <input type="text" placeholder="Enter something..." id="input">
-    <button onclick="crypter()" id="lockButton">
-    <i class="fa fa-lock" aria-hidden="true"></i>
-    </button>
+    <input type="text" placeholder="Enter something..." id="input" required>
+    <button onclick="crypter()" id="lockButton"> <i class="fa fa-lock" aria-hidden="true"></i> </button>
+    <h4>ROT13 (Shift a <i class="fas fa-expand-alt"></i> n)
+        Using <i class="far fa-flag"></i> English alphabet
+    </h4>
     <div id="resolut"></div>
     <button onclick="copy_data(resolut)" id="copyBtn"><i class="far fa-copy"></i></button>
 

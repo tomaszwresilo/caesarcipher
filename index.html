@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceasar's Cipher</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="icon" href="img/favicon.ico">
 
 </head>
@@ -23,27 +23,18 @@
     <h1>Let's encrypt something!</h1>
     <h2><i class="far fa-keyboard"></i></h2>
     <input type="text" placeholder="Enter something..." id="input" required>
-    <button onclick="crypter()" id="lockButton"> <i class="fa fa-lock" aria-hidden="true"></i> </button>
-    <h4>ROT13 (Shift a <i class="fas fa-expand-alt"></i> n)
-        Using <i class="far fa-flag"></i> English alphabet
-    </h4>
+    <button id="lockButton"> <i class="fa fa-lock" aria-hidden="true"></i> </button>
+    <h4>ROT13 (Shift a <i class="fas fa-expand-alt"></i> n) Using <i class="far fa-flag"></i> English alphabet</h4>
     <div id="resolut"></div>
-    <button onclick="copy_data(resolut)" id="copyBtn"><i class="far fa-copy"></i></button>
-
+    <button id="copyBtn"><i class="far fa-copy"></i></button>
 </main>
 
 
 <footer>
-    <p>Made by <a href="https://github.com/tomaszwresilo">me</a> from the <i class="fas fa-heart"></i></p>
-    <p> Using technology: <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js-square"></i></p>
+    <p>Made by <a href="https://github.com/tomaszwresilo">me</a> from the <i class="fas fa-heart"></i> Using technology: <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js-square"></i></p>
 </footer>
 
 
-
-
-<!-- Page up button -->
-
-<button class="fas fa-rocket" onclick="topFunction()" id="myBtn"></button>
 
 
 <!-- All scripts -->
@@ -52,18 +43,8 @@
 <script src="https://kit.fontawesome.com/fd15f52973.js" crossorigin="anonymous"></script>
 <!-- Font Awesome -->
 
-<script src="code.js"></script>
+<script src="./index.js"></script>
 <!-- Scripts -->
-
-<script src="pageup.js"></script>
-<!-- Page up JS Feature Scripts -->
-
-
-<script src="copy.js"></script>
-<!-- copy button -->
-
-<script src="enter.js"></script>
-<!-- click enter to activate button -->
 
 </body>
 </html>

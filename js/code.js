@@ -1,6 +1,6 @@
 function crypter(){
 
-    let input = document.getElementById("input").value.trim().replace(/\s/g, '');
+  const input = document.getElementById("input").value.trim().replace(/\s/g, '');
 
 
     if(typeof input !== 'string'){
@@ -11,18 +11,21 @@ function crypter(){
     }
 
 
-    let inputInTable = [...input.toLowerCase()];
+    const inputInTable = [...input.toLowerCase()];
 
     const alphabetInTable = "abcdefghijklmnopqrstuvwxyz";
     const numbersInTable = "0123456789";
+    const alphabetLength = 26;
+    const shift = 13;
+    const isNumber = -1;
 
 
-    let crypt = inputInTable.map(el => {
-        if(alphabetInTable.indexOf(el) == -1) return el;
-      if(alphabetInTable.indexOf(el)+13 >= 26) return alphabetInTable.indexOf(el)+13-26;
-      return alphabetInTable.indexOf(el)+13;
+    const crypt = inputInTable.map(el => {
+        if(alphabetInTable.indexOf(el) == isNumber) return el;
+      if(alphabetInTable.indexOf(el)+shift >= alphabetLength) return alphabetInTable.indexOf(el)+shift-alphabetLength;
+      return alphabetInTable.indexOf(el)+shift;
     });
-    let add = crypt.map(index => {
+    const add = crypt.map(index => {
       if(typeof index == 'string')
         {
           return numbersInTable[index];
@@ -30,8 +33,8 @@ function crypter(){
          return alphabetInTable[index];
     });
 
-    let resolut = add.join('');
-    let finish = [];
+    const resolut = add.join('');
+    const finish = [];
 
 
     for(let i = input.length-1; i >= 0; i--){

@@ -117,7 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"code.js":[function(require,module,exports) {
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/code.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,10 +224,13 @@ function crypter() {
 
   var alphabetInTable = "abcdefghijklmnopqrstuvwxyz";
   var numbersInTable = "0123456789";
+  var alphabetLength = 26;
+  var shift = 13;
+  var isNumber = -1;
   var crypt = inputInTable.map(function (el) {
-    if (alphabetInTable.indexOf(el) == -1) return el;
-    if (alphabetInTable.indexOf(el) + 13 >= 26) return alphabetInTable.indexOf(el) + 13 - 26;
-    return alphabetInTable.indexOf(el) + 13;
+    if (alphabetInTable.indexOf(el) == isNumber) return el;
+    if (alphabetInTable.indexOf(el) + shift >= alphabetLength) return alphabetInTable.indexOf(el) + shift - alphabetLength;
+    return alphabetInTable.indexOf(el) + shift;
   });
   var add = crypt.map(function (index) {
     if (typeof index == 'string') {
@@ -177,7 +252,7 @@ function crypter() {
 
   return document.getElementById("resolut").innerHTML = finish.reverse().join('');
 }
-},{}],"copy.js":[function(require,module,exports) {
+},{}],"js/copy.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -210,9 +285,11 @@ function copyClipboard() {
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _code = require("./code");
+require("./css/style.css");
 
-var _copy = require("./copy");
+var _code = require("./js/code");
+
+var _copy = require("./js/copy");
 
 document.getElementById("lockButton").onclick = function () {
   (0, _code.crypter)();
@@ -221,7 +298,7 @@ document.getElementById("lockButton").onclick = function () {
 document.getElementById("copyBtn").onclick = function () {
   (0, _copy.copyClipboard)();
 };
-},{"./code":"code.js","./copy":"copy.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./css/style.css":"css/style.css","./js/code":"js/code.js","./js/copy":"js/copy.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -249,7 +326,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7153" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "29819" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -425,5 +502,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/CeasarCipher.e31bb0bc.js.map

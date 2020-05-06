@@ -1,9 +1,9 @@
 function copyClipboard() {
-    let elm = document.getElementById("resolut");
+    const elm = document.getElementById("resolut");
     // for Internet Explorer
 
     if(document.body.createTextRange) {
-      let range = document.body.createTextRange();
+      const range = document.body.createTextRange();
       range.moveToElementText(elm);
       range.select();
       document.execCommand("Copy");
@@ -12,8 +12,8 @@ function copyClipboard() {
     else if(window.getSelection) {
       // other browsers
 
-      let selection = window.getSelection();
-      let range = document.createRange();
+      const selection = window.getSelection();
+      const range = document.createRange();
       range.selectNodeContents(elm);
       selection.removeAllRanges();
       selection.addRange(range);

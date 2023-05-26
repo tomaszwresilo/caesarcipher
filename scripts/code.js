@@ -1,51 +1,29 @@
-function crypter() {
-  const input = document
-    .getElementById("input")
-    .value.trim()
-    .replace(/\s/g, "");
+import { input, resolut } from "./index.js";
 
+function crypter(input, resolut) {
   if (typeof input !== "string") {
-    return (document.getElementById("resolut").innerHTML =
-      "Pleas enter a string!");
+    return (resolut.innerHTML = "Please enter a string!");
   }
-  if (input == "") {
-    return (document.getElementById("resolut").innerHTML = "Textbox is empty!");
+  if (input.trim() === "") {
+    return (resolut.innerHTML = "Textbox is empty!");
   }
 
-  const inputInTable = [...input.toLowerCase()];
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const wordInTable = input.toLowerCase().split("");
+  const shiftValue = 13;
 
-  const alphabetInTable = "abcdefghijklmnopqrstuvwxyz";
-  const numbersInTable = "0123456789";
-  const alphabetLength = 26;
-  const shift = 13;
-  const isNumber = -1;
+  const mappingArray = wordInTable.map((element) => {
+    const remainingCharacters = alphabet.length - alphabet.indexOf(element);
+    const indexInAlphabet = alphabet.indexOf(element);
 
-  const crypt = inputInTable.map((el) => {
-    if (alphabetInTable.indexOf(el) == isNumber) return el;
-    if (alphabetInTable.indexOf(el) + shift >= alphabetLength)
-      return alphabetInTable.indexOf(el) + shift - alphabetLength;
-    return alphabetInTable.indexOf(el) + shift;
-  });
-  const add = crypt.map((index) => {
-    if (typeof index == "string") {
-      return numbersInTable[index];
+    if (indexInAlphabet === -1) {
+      return element;
     }
-    return alphabetInTable[index];
+
+    return alphabet[(indexInAlphabet + shiftValue) % alphabet.length];
   });
 
-  const resolut = add.join("");
-  const finish = [];
-
-  for (let i = input.length - 1; i >= 0; i--) {
-    if (input[i] == input[i].toUpperCase()) {
-      finish.push(resolut[i].toUpperCase());
-    } else {
-      finish.push(resolut[i].toLowerCase());
-    }
-  }
-
-  return (document.getElementById("resolut").innerHTML = finish
-    .reverse()
-    .join(""));
+  resolut.innerHTML = mappingArray.join("");
 }
+
 export { crypter };

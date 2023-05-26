@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "clear.css": "^1.0.0",
+    "gh-pages": "^5.0.0",
     "parcel": "^2.8.3"
   },
   "devDependencies": {

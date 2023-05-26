@@ -5,7 +5,7 @@
   "author": "Tomasz <twresilo@gmail.com>",
   "scripts": {
     "start": "parcel index.html",
-    "predeploy": "rm -rf dist && parcel build --no-source-maps --public-url https://tomaszwresilo.github.io/caesarcipher/ index.html --out-dir dist",
+    "predeploy": "rm -rf dist && parcel build --no-source-maps --public-url https://tomaszwresilo.github.io/caesarcipher/ index.html",
     "deploy": "gh-pages -d dist",
     "postdeploy": "echo https://tomaszwresilo.github.io/caesarcipher/"
   },

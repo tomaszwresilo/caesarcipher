@@ -2,10 +2,10 @@ import { input, resolut } from "./index.js";
 
 function crypter(input, resolut) {
   if (typeof input !== "string") {
-    return (resolut.innerHTML = "Please enter a string!");
+    return (resolut.innerText = "Please enter a string!");
   }
   if (input.trim() === "") {
-    return (resolut.innerHTML = "Textbox is empty!");
+    return (resolut.innerText = "Textbox is empty!");
   }
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -23,7 +23,7 @@ function crypter(input, resolut) {
     return alphabet[(indexInAlphabet + shiftValue) % alphabet.length];
   });
 
-  resolut.innerHTML = mappingArray.join("");
+  resolut.innerText = mappingArray.join("");
 }
 
 export { crypter };

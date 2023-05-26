@@ -1,6 +1,6 @@
-import { input, resolut } from "./index.js";
+import { input, resolut, encrypionType } from "./index.js";
 
-function crypter(input, resolut) {
+function crypter(input, resolut, encrypionType) {
   if (typeof input !== "string") {
     return (resolut.innerText = "Please enter a string!");
   }
@@ -10,8 +10,6 @@ function crypter(input, resolut) {
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const wordInTable = input.toLowerCase().split("");
-  const shiftValue = 13;
-
   const mappingArray = wordInTable.map((element) => {
     const remainingCharacters = alphabet.length - alphabet.indexOf(element);
     const indexInAlphabet = alphabet.indexOf(element);
@@ -20,7 +18,7 @@ function crypter(input, resolut) {
       return element;
     }
 
-    return alphabet[(indexInAlphabet + shiftValue) % alphabet.length];
+    return alphabet[(indexInAlphabet + encrypionType) % alphabet.length];
   });
 
   resolut.innerText = mappingArray.join("");

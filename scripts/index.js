@@ -5,10 +5,12 @@ const lockButton = document.querySelector("#lockButton");
 const copyBtn = document.querySelector("#copyBtn");
 const input = document.querySelector("#input");
 const resolut = document.querySelector("#resolut");
+const shiftValue = document.querySelector("#shiftValue");
 
 function handleCrypter() {
   const inputValue = input.value.trim().replace(/\s/g, "");
-  crypter(inputValue, resolut);
+  const encrypionType = shiftValue.value;
+  crypter(inputValue, resolut, encrypionType);
   input.value = "";
   input.focus();
 }
@@ -24,4 +26,4 @@ lockButton.addEventListener("click", handleCrypter);
 copyBtn.addEventListener("click", copyClipboard);
 input.addEventListener("keydown", handleEnter);
 
-export { input, resolut };
+export { input, resolut, encrypionType };

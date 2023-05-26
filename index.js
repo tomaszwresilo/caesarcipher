@@ -1,5 +1,5 @@
-import { crypter } from "./js/code";
-import { copyClipboard } from "./js/copy";
+import { crypter } from "/code";
+import { copyClipboard } from "/copy";
 
 document.getElementById("lockButton").onclick = function () {
   crypter();

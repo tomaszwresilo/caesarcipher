@@ -1,19 +1,16 @@
 {
-  "name": "CeasarCipher",
+  "name": "caesarcipher",
   "version": "10.0",
-  "repository": "https://github.com/tomaszwresilo/caesarcipher.git",
   "homepage": "https://github.com/tomaszwresilo/caesarcipher/",
   "author": "Tomasz <twresilo@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url https://github.com/tomaszwresilo/caesarcipher/",
+    "predeploy": "rm -rf dist && parcel build index.html --no-source-maps --public-url https://tomaszwresilo.github.io/caesarcipher/",
     "deploy": "gh-pages -d dist",
-    "postdeploy": "echo https://github.com/tomaszwresilo/caesarcipher/"
+    "postdeploy": "echo https://tomaszwresilo.github.io/caesarcipher/"
   },
   "dependencies": {
     "clear.css": "^1.0.0",
-    "gh-pages": "^5.0.0",
     "parcel": "^2.8.3"
   },
   "devDependencies": {

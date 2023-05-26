@@ -25,7 +25,6 @@ npm-debug.log*
 
 # Jest Coverage
 coverage
-
 .history/
-
 yarn.lock
+.parcel-cache

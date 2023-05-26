@@ -4,7 +4,7 @@ node_modules
 # Build files
 dist/
 .cashe/
-
+.parcel-cache/
 # lock files
 yarn.lock
 package-lock.json
@@ -27,4 +27,3 @@ npm-debug.log*
 coverage
 .history/
 yarn.lock
-.parcel-cache

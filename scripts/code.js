@@ -1,27 +1,31 @@
-import { input, resolut, encrypionType } from "./index.js";
+import { input, result, encrypionType } from "./index.js";
 
-function crypter(input, resolut, encrypionType) {
+function crypter(input, result, encrypionType) {
   if (typeof input !== "string") {
-    return (resolut.innerText = "Please enter a string!");
+    result.innerText = "Please enter a string!";
+    return;
   }
+
   if (input.trim() === "") {
-    return (resolut.innerText = "Textbox is empty!");
+    result.innerText = "Textbox is empty!";
+    return;
   }
 
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const wordInTable = input.toLowerCase().split("");
+
   const mappingArray = wordInTable.map((element) => {
-    const remainingCharacters = alphabet.length - alphabet.indexOf(element);
     const indexInAlphabet = alphabet.indexOf(element);
 
     if (indexInAlphabet === -1) {
       return element;
     }
 
-    return alphabet[(indexInAlphabet + encrypionType) % alphabet.length];
+    const encryptedIndex = (indexInAlphabet + encrypionType) % alphabet.length;
+    return alphabet[encryptedIndex];
   });
 
-  resolut.innerText = mappingArray.join("");
+  result.innerText = mappingArray.join("");
 }
 
 export { crypter };

@@ -9,7 +9,7 @@ const shiftValue = document.querySelector("#shiftValue");
 
 function handleCrypter() {
   const inputValue = input.value.trim().replace(/\s/g, "");
-  const encrypionType = shiftValue.value;
+  const encrypionType = parseInt(shiftValue.value);
   crypter(inputValue, resolut, encrypionType);
   input.value = "";
   input.focus();

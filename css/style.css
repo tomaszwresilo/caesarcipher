@@ -95,8 +95,6 @@ button:hover {
   color: red;
 }
 
-/* Page up button */
-
 #myBtn {
   display: none;
   position: fixed;
